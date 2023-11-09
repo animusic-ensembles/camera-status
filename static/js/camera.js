@@ -1,7 +1,7 @@
 const API_URL = "https://rcshim04.pythonanywhere.com/cameras";
 
 $(document).ready(function() {
-    const name = window.location.pathname.split("/")[1];
+    const name = window.location.pathname.split("/")[window.location.pathname.split("/").length - 2];
     const key = new URLSearchParams(window.location.search).get("key");
 
     $(document).on("click tap", ".active", async function() {
