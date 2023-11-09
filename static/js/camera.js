@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/cameras";
+const API_URL = "https://rcshim04.pythonanywhere.com/cameras";
 
 $(document).ready(function() {
     const name = window.location.pathname.split("/")[1];
