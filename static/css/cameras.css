@@ -50,4 +50,15 @@
     .bottom > * {
         height: calc((100% - 2rem) / 3);
     }
+    .thumbnail {
+        height: 70%;
+        font-size: 1.6rem;
+    }
+    .icon {
+        font-size: 4rem;
+    }
+    .status {
+        height: 30%;
+        font-size: 2rem;
+    }
 }
