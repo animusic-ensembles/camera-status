@@ -28,7 +28,6 @@ $(document).ready(function() {
     setInterval(async function() {
         const response = await fetch(`${API_URL}?key=${key}`);
         const data = await response.json();
-        console.log(data);
         if(data.error) {
             alert("No Key Provided");
             window.location.href="about:blank";
@@ -64,5 +63,5 @@ $(document).ready(function() {
             $(`.status`).html(status).removeClass("offline online ready live").addClass(status.toLowerCase());
         });
         $(".current").html(current);
-    }, 200);
+    }, 500);
 });

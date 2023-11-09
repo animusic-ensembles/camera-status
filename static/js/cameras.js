@@ -74,5 +74,5 @@ $(document).ready(function() {
             $(`#${camera.name} .status`).html(status);
         });
         $(".current").html(current);
-    }, 200);
+    }, 500);
 });
