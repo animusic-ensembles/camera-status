@@ -8,6 +8,7 @@ $(document).ready(function() {
         const data = await response.json();
         if(data.error) {
             alert("No Key Provided");
+            window.location.href="about:blank";
         }
         data.forEach(async (camera) => {
             camera.live = false;
@@ -24,6 +25,7 @@ $(document).ready(function() {
         const data = await response.json();
         if(data.error) {
             alert("No Key Provided");
+            window.location.href="about:blank";
         }
         data.forEach(async (camera) => {
             if(camera.name == $(this).attr("id")) {
@@ -44,6 +46,7 @@ $(document).ready(function() {
         console.log(data);
         if(data.error) {
             alert("No Key Provided");
+            window.location.href="about:blank";
         }
         let current = "N/A";
         data.forEach((camera) => {
