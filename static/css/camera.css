@@ -1,0 +1,29 @@
+
+.bottom > * {
+    width: calc((100% - 2rem) / 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 3rem;
+}
+.inactive {
+    background-color: #111 !important;
+    color: #666 !important;
+}
+.active {
+    background-color: #222 !important;
+    cursor: pointer;
+}
+.ready {
+    color: #84ff79 !important;
+}
+.live {
+    color: #ff7979 !important;
+}
+
+@media screen and (max-width: 480px) {
+    .bottom > * {
+        height: calc((100% - 1rem) / 2);
+    }
+}
