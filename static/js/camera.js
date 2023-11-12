@@ -1,4 +1,4 @@
-import { setCookie, getCookie } from "./cookies";
+import { getCookie, setCookie } from "./cookies.mjs";
 
 const API_URL = "https://rcshim04.pythonanywhere.com/cameras";
 
