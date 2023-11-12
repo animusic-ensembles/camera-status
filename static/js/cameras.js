@@ -1,13 +1,29 @@
+import { getCookie, setCookie } from "./cookies.mjs";
+
 const API_URL = "https://rcshim04.pythonanywhere.com/cameras";
 
-$(document).ready(function() {
-    const key = new URLSearchParams(window.location.search).get("key");
+$(document).ready(async function() {
+    let key = getCookie("key");
+    while(1) {
+        const error = await fetch(`${API_URL}?key=${key}`)
+            .then((res) => res.json())
+            .then((data) => {
+                if(!data.error) {
+                    setCookie("key", key, 7);
+                }
+                return data.error;
+            }  
+        );
+        if(!error) {
+            break;
+        }
+        key = prompt(error);
+    }
 
     $(".clear").on("click tap", async function() {
-        const response = await fetch(`${API_URL}?key=${key}`);
-        const data = await response.json();
+        const data = await (await fetch(`${API_URL}?key=${key}`)).json();
         if(data.error) {
-            alert("No Key Provided");
+            alert(data.error);
             window.location.href="about:blank";
         }
         data.forEach(async (camera) => {
@@ -21,10 +37,9 @@ $(document).ready(function() {
     });
 
     $(document).on("click tap", ".select", async function() {
-        const response = await fetch(`${API_URL}?key=${key}`);
-        const data = await response.json();
+        const data = await (await fetch(`${API_URL}?key=${key}`)).json();
         if(data.error) {
-            alert("No Key Provided");
+            alert(data.error);
             window.location.href="about:blank";
         }
         data.forEach(async (camera) => {
@@ -41,11 +56,10 @@ $(document).ready(function() {
     });
 
     setInterval(async function() {
-        const response = await fetch(`${API_URL}?key=${key}`);
-        const data = await response.json();
+        const data = await (await fetch(`${API_URL}?key=${key}`)).json();
         console.log(data);
         if(data.error) {
-            alert("No Key Provided");
+            alert(data.error);
             window.location.href="about:blank";
         }
         let current = "N/A";
