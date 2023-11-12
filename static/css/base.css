@@ -40,9 +40,11 @@ body {
     user-select: none;
 }
 h1 {
+    font-size: 2.4rem;
     font-weight: 500;
 }
 h3 {
+    font-size: 1.2rem;
     font-weight: 400;
 }
 
@@ -53,4 +55,10 @@ h3 {
     .bottom > * {
         width: 100% !important;
     }
+    h1 {
+            font-size: 1.6rem;
+        }
+    h3 {
+            font-size: 0.8rem;
+        }
 }
