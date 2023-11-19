@@ -10,7 +10,7 @@ $(document).ready(async function() {
             .then((res) => res.json())
             .then((data) => {
                 if(!data.error) {
-                    setCookie("key", key, 7);
+                    setCookie("key", key, 28);
                 }
                 return data.error;
             }  
